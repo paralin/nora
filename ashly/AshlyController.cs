@@ -88,7 +88,7 @@ namespace nora.ashly {
                     new Vector(-6219.188f, -5654.906f, 261.0313f)));
                 commanded = true;
                 log.Info("Made move command");
-            } else if (rules.GameState.Value == GameState.ACTIVE
+            } /*else if (rules.GameState.Value == GameState.ACTIVE
                     && us.Hero.Value.HasValue) {
                         if (!lastTick.HasValue || lastTick != resource.TreeStateRadiant.ReadAt) {
                     log.Warn(string.Join(
@@ -96,7 +96,7 @@ namespace nora.ashly {
                         resource.TreeStateRadiant.Value.Select((x) => x.ToString())));
                     lastTick = resource.TreeStateRadiant.ReadAt.Value;
                 }
-            }
+            }*/
         }
 
         private void UpdateEntities() {

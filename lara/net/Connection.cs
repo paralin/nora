@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Threading;
+using Snappy.Sharp;
 
 namespace nora.lara.net {
 
@@ -96,8 +97,12 @@ namespace nora.lara.net {
         private ConcurrentQueue<Message> receivedInBand;
         private ConcurrentQueue<byte[]> receivedOutOfBand;
 
+        private SnappyDecompressor snappyDecompressor;
+
         private Connection() {
             this.ShouldSendAcks = false;
+
+            this.snappyDecompressor = new SnappyDecompressor();
 
             this.state = State.Closed;
 			this.socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
@@ -376,8 +381,10 @@ namespace nora.lara.net {
             byte[] data;
             if (!message.IsCompressed) {
                 data = message.Data;
-            } else {
-                data = Snappy.Sharp.Snappy.Uncompress(message.Data);
+            } else
+            {
+                data = snappyDecompressor.Decompress(message.Data, 0, message.Data.Length);
+                //data = Snappy.Sharp.Snappy.Uncompress(message.Data);
 
                 Preconditions.CheckArgument(message.DecompressedLength == data.Length);
             }

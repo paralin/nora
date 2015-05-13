@@ -100,7 +100,7 @@
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Snappy.Sharp">
-      <HintPath>..\assemblies\Snappy.Sharp.dll</HintPath>
+      <HintPath>..\lib\Snappy.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="SteamKit2, Version=1.5.1.41089, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

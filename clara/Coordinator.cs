@@ -117,7 +117,7 @@ namespace nora.clara {
                     member.team == DOTA_GC_TEAM.DOTA_GC_TEAM_BAD_GUYS ||
                     member.team == DOTA_GC_TEAM.DOTA_GC_TEAM_GOOD_GUYS);
 
-                if (valid >= 2) {
+                if (valid >= 3) {
                     Machine.Trigger(Event.LOBBY_READY);
                 } else {
                     Machine.Trigger(Event.LOBBY_NOT_READY);

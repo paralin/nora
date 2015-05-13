@@ -44,6 +44,7 @@
     <Compile Include="dota\PlayerResource.cs" />
     <Compile Include="dsl\PropertyClass.cs" />
     <Compile Include="dsl\Value.cs" />
+    <Compile Include="Zoo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="log4net">

@@ -131,6 +131,11 @@ namespace nora.clara {
                 (uint) EDOTAGCMsg.k_EMsgGCPracticeLobbyCreate);
             msg.Body.client_version = ClientVersion;
             msg.Body.pass_key = passKey;
+            msg.Body.lobby_details = new CMsgPracticeLobbySetDetails();
+            msg.Body.lobby_details.server_region = 3;
+            msg.Body.lobby_details.allow_cheats = true;
+            msg.Body.lobby_details.pass_key = passKey;
+            msg.Body.lobby_details.game_name = "Test";
             Bot.Coordinator.Send(msg, Games.DotaGameId);
         }
 
